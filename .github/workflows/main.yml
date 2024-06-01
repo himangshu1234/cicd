@@ -10,8 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       name: image build from dockerfile
-      run:
-        docker build -t himangshu12/test_1:ciapp .
+      run: |
+        echo "FROM CentOS
+              RUN dnf install httpd && \
+              systemctl enable httpd
+              WORKDIR /var/www/html
+              CMD pwd
+              COPY app.html index.html
+              CMD ["httpd", "-D", "FOREGROUND"]" > Dockerfile
+        cd /docker
+        docker build -t himangshu12/test_1:ciapp /docker
   image-push: 
     need: docker 
     run-on: ubuntu-latest
