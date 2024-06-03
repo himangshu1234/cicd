@@ -20,7 +20,7 @@ jobs:
                 COPY app.html index.html
                 CMD [\"httpd\", \"-D\", \"FOREGROUND\"]" > Dockerfile
           cd /docker
-          docker build -t himangshu12/test_1:ciapp /docker
+          docker build -t himangshu12/test_1:ciapp .
 
   image-push: 
     needs: build
