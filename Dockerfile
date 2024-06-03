@@ -1,8 +1,6 @@
-FROM centos
-WORKDIR / 
-RUN | dnf install httpd -y && \
-      systemctl enable httpd
+FROM nginx
+WORKDIR /
 RUN pwd
-COPY app1.html /var/www/htmlindex.html
+COPY app1.html /var/www/html/index.html
 EXPOSE 8080
-CMD ["httpd", "-D", "FOREGROUND"]
+CMD ["nginx", "-g", "daemon off;"]
