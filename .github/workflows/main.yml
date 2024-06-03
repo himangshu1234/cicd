@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: image build from dockerfile
         run: |
+          cd /docker
           echo "FROM CentOS
                 RUN dnf install httpd -y && \
                 systemctl enable httpd
@@ -19,7 +20,6 @@ jobs:
                 CMD pwd
                 COPY app.html index.html
                 CMD [\"httpd\", \"-D\", \"FOREGROUND\"]" > Dockerfile
-          cd /docker
           docker build -t himangshu12/test_1:ciapp .
 
   image-push: 
