@@ -10,6 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: copy app file
+        run: cp app1.html /app.html
       - name: change dirctory
         run: cd /
       - name: image build from dockerfile
