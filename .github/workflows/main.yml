@@ -10,19 +10,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      #- name: copy app file
-        #run: cp app1.html /app.html
-      #- name: change dirctory
-        #run: cd /
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: image build from dockerfile
-        run: |
-          #echo "FROM centos
-                #RUN dnf install httpd -y && \
-                #systemctl enable httpd
-                #WORKDIR /var/www/html
-                #CMD pwd
-                #COPY app.html index.html
-                #CMD [\"httpd\", \"-D\", \"FOREGROUND\"]" > Dockerfile
+        run: |          
           docker build -t himangshu12/test_1:ciapp-${GITHUB_RUN_NUMBER} .
   image-push: 
     needs: build
