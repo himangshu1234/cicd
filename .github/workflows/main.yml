@@ -23,7 +23,7 @@ jobs:
                 #CMD pwd
                 #COPY app.html index.html
                 #CMD [\"httpd\", \"-D\", \"FOREGROUND\"]" > Dockerfile
-          docker build -t himangshu12/test_1:ciapp-$RUN_NUMBER '../../../Dockerfile'
+          docker build -t himangshu12/test_1:ciapp-$RUN_NUMBER .
   image-push: 
     needs: build
     runs-on: ubuntu-latest
