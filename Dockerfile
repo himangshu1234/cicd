@@ -1,7 +1,7 @@
-FROM CentOS
-RUN | dnf install httpd && \
+FROM centos
+RUN | dnf install httpd && -y \
       systemctl enable httpd
 WORKDIR /var/www/html
 CMD pwd
-COPY app.html index.html
+COPY app1.html index.html
 CMD ["httpd", "-D", "FOREGROUND"]
