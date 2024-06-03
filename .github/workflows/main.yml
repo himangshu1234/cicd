@@ -13,8 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: image build from dockerfile
-        run: |        
-          docker build -t himangshu12/test_1:ciapp-${GITHUB_RUN_NUMBER} .
+        run: docker build -t himangshu12/test_1:ciapp-${GITHUB_RUN_NUMBER} .
   image-push: 
     needs: build
     runs-on: ubuntu-latest
