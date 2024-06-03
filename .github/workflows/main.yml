@@ -14,7 +14,7 @@ jobs:
         run: cd /
       - name: image build from dockerfile
         run: |
-          echo "FROM CentOS
+          echo "FROM centos
                 RUN dnf install httpd -y && \
                 systemctl enable httpd
                 WORKDIR /var/www/html
