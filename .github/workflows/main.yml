@@ -7,7 +7,21 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+   test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies 
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y npm
+          sudo npm install -g htmlhint
+
+      - name: Run HTMLHint
+        run: htmlhint app1.html
+   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
