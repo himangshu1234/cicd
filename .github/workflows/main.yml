@@ -22,6 +22,7 @@ jobs:
       - name: Run HTMLHint
         run: htmlhint app1.html
    build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
